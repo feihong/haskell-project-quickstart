@@ -15,6 +15,10 @@ stack exec quickstart-exe
 
 `stack runghc scripts/json_quickstart.hs`
 
+## Run repl without package hiding
+
+`stack ghci --no-package-hiding`
+
 ## Sources
 
 - [What I Wish I Knew When Learning Haskell](http://dev.stephendiehl.com/hask/)
