@@ -1,6 +1,6 @@
 # Feihong's Haskell Project Quickstart
 
-## Installation
+## Create project
 
 First, [install Stack](https://github.com/feihong/haskell-quickstart#installation)
 
@@ -10,6 +10,10 @@ stack setup
 stack build
 stack exec quickstart-exe
 ```
+
+## Compile and run a script
+
+`stack runghc scripts/json_quickstart.hs`
 
 ## Sources
 
