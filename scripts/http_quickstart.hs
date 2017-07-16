@@ -6,7 +6,7 @@ Source: https://stackoverflow.com/questions/37571939/data-bytestring-lazy-intern
 
 import Data.Text
 import Data.Text.Encoding
-import Data.ByteString.Lazy (toStrict)
+import qualified Data.ByteString.Lazy as BL
 import Control.Lens
 import Network.Wreq
 
@@ -18,5 +18,6 @@ main = do
   print $ res ^. responseStatus . statusCode
   putStr "Content type: "
   print $ res ^. responseHeader "Content-Type"
-  let body = unpack $ decodeUtf8 $ toStrict $ res ^. responseBody
+  -- Convert response (raw lazy ByteString) to a String.
+  let body = unpack $ decodeUtf8 $ BL.toStrict $ res ^. responseBody
   putStrLn $ "Your IP address is " ++ body
