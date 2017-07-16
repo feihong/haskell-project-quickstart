@@ -6,12 +6,17 @@ Source: https://stackoverflow.com/questions/37571939/data-bytestring-lazy-intern
 
 import Data.Text
 import Data.Text.Encoding
+import Data.ByteString.Lazy (toStrict)
 import Control.Lens
 import Network.Wreq
+
 
 main :: IO ()
 main = do
   res <- get "http://ipecho.net/plain"
+  putStr "Status: "
   print $ res ^. responseStatus . statusCode
+  putStr "Content type: "
   print $ res ^. responseHeader "Content-Type"
-  print $ decodeUtf8 $ res ^. responseBody
+  let body = unpack $ decodeUtf8 $ toStrict $ res ^. responseBody
+  putStrLn $ "Your IP address is " ++ body
