@@ -15,9 +15,15 @@ stack exec quickstart-exe
 
 `stack runghc scripts/json_quickstart.hs`
 
-## Run repl without package hiding
+## REPL
+
+Run repl without package hiding:
 
 `stack ghci --no-package-hiding`
+
+Use OverloadedStrings language extension inside repl:
+
+`ghci> :set -XOverloadedStrings`
 
 ## Sources
 
